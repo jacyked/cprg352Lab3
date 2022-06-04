@@ -17,6 +17,16 @@ import javax.servlet.http.HttpServletResponse;
  * @author Matt
  */
 public class AgeCalculatorServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // GET requests will end up here!
+        
+        // Load a JSP from this servlet
+        getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp").forward(request, response);
+        // After a JSP has been loaded, stop the code call
+        return; // VERY IMPORTANT!
+    }
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
